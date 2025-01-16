@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: hsl(275, 100%, 5%);}
+
+a {
+    color:greenyellow;
+}
+
+a:active {
+    color: hsl(275, 100%, 20%);
+}
+
+header {
+    position: sticky;
+    top:0;
+    z-index: 3;
+    background-color: hsl(275, 100%, 20%);
+    align-self: stretch;
+}
+
+nav {
+    position: relative;
+    width: fit-content;
+    margin-left: auto;
+}
+
+nav button {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0 40px 0 0;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 20px ;
+}
+
+nav a:hover {
+    color: hsl(275, 100%, 30%);
+    background-color: greenyellow;
+}
+
+.content {
+    color: white;
+    width:clamp(1000px,70vw,1500px);
+    padding:0 40px;
+    box-sizing: border-box;
+}
+
+section:not(#about-me) {
+    margin-top: 40px;
+    border-top: 1px solid green;
+    padding-top: 40px;
+}
+
+section > h1:first-child {
+    margin-top: 0;
+    color: rgb(255, 255, 133);
+}
+
+.logo {
+    background-image: url('./assets/me-in-park.jpg');
+    background-position: center;
+    background-size: cover;
+    height:min(56vw,80vh);
+}
+
+.logo img {
+    width: min(30rem,60%);
+    margin-top:10%;
+    margin-left:40%;
+    filter: drop-shadow(0 0 10px black);
+    position: relative;
+    z-index: 2;
+
+}
+
+#about-me {
+    display: flex;
+    flex-direction: column;;
+}
+
+.about-me {
+    max-width: 60ch;
+    align-self: center;
+    margin-top: -100px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me h1 {
+    background-color: hsl(275, 81%, 17%);
+    text-align: center;
+    border-radius: 10px;
+    align-self: center;
+    padding: 10px 40px;
+    margin: 0;
+    margin-bottom: -5px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-me p {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: rgb(27, 27, 27);
+    border: 3px inset black;
+    border-radius: 5px;
+    margin:0;
+    position: relative;
+    z-index: 0;
+
+}
+
+#skills .sections {
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px groove black;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+}
+
+#skills .section {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(27, 27, 27);
+    border: 3px inset black;
+}
+
+#skills .section h2 {
+    margin-top: 0;
+    color:hsl(84, 90%, 70%);
+}
+
+#skills p {
+    font-size: 24px;
+}
+
+#skills .section ul {
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 20px;
+    color: hsl(275, 50%, 65%);
+    margin-bottom: 0;
+}
+
+#skills .section li::before {
+    content: "> ";
+}
+
+#education {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text image" "details image";
+}
+
+#education p {
+    max-width: 50ch;
+    grid-area: text;
+    font-size: 18px;
+    justify-self: end;
+}
+
+#education ul {
+    grid-area: details;
+    list-style: none;
+    justify-self: center;
+}
+
+#education img {
+    grid-area: image;
+    width: min(500px,100%);
+    justify-self: start;
+}
+
+#contacts ul {
+    align-self: center;
+    list-style: none;
+    padding: 0;
+    width: fit-content;
+    margin:50px auto 50px auto;
+}
+
+#contacts li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width:64px;
+    margin-right: 20px;
+}
+
+footer {
+    background-color: hsl(275, 81%, 17%);
+    text-align: center;
+    padding: 20px 0;
+}
+
+@media (max-width:1000px) {
+    .nav-menu-hidden {
+        display: none;
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top:100%;
+        right:0;
+        margin-right: 0;
+        padding:0;
+        background-color: hsl(275, 81%, 17%);
+    }
+
+    nav button {
+        display: block;
+        margin: 5px;
+    }
+
+    .logo img {
+        margin-top: 20px;
+    }
+
+    .about-me p {
+        border: none;
+    }
+
+    .content {
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    #education {
+        grid-template-columns: 1fr;
+        grid-template-areas: "text" "details" "image";
+    }
+
+    #education p {
+        justify-self: start;
+    }
+
+    #education img {
+        justify-self: end;
+    }
+}
+
+@media (max-width:600px) {
+    .about-me {
+        margin-top: 0;
+        background-color: black;
+    }
+}
